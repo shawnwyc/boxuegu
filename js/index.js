@@ -1,6 +1,5 @@
-
 /**
- * Created by wyc on 2017/2/25.
+ * Created by wyc on 2017/3/2.
  */
 define(['jquery','common','nprogress'],function($,undefined,nprogress){
 

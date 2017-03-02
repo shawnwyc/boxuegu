@@ -35,6 +35,8 @@ define(['jquery','jqueryCookie'],function($,undefined){
 
     //然后展示到左侧导航
     $('.aside .profile h4 ').html(userInfo.tc_name?userInfo.tc_name:'dagenimeiminmaga');
-    $('.aside .profile img').attr('src',userInfo.tc_avater?userInfo.tc_avater:'/img/default.png');
+    $('.aside .profile img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/images/default.png');
+
+
 
 })
