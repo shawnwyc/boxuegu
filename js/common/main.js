@@ -8,29 +8,31 @@ requirejs.config({
     baseUrl:'/',
     //第三方库的路径配置
     paths:{
-        jquery: '/lib/jquery/jquery.min',
-        bootstrap: '/lib/bootstrap/js/bootstrap.min',
-        jqueryCookie:'/lib/jquery-cookie/jquery.cookie',
-        nprogress:'/lib/nprogress/nprogress',
+        // 第三方库的路径配置
+        jquery: 'lib/jquery/jquery.min',
+        bootstrap: 'lib/bootstrap/js/bootstrap.min',
+        jqueryCookie: 'lib/jquery-cookie/jquery.cookie',
+        nprogress: 'lib/nprogress/nprogress',
+        template: 'lib/artTemplate-3.0.1/template',
 
-    //自己写的路径配置
-        common:'/js/common/common',
-        courseAddStep1:'/js/course/add_step1',
-        courseAddStep2:'/js/course/add_step2',
-        courseAddStep3:'/js/course/add_step3',
-        courseAdd:'/js/course/add1',
-        courseCategory:'/js/course/category',
-        courseCategoryAdd:'/js/course/category_add',
-        courseList:'/js/course/list',
-        topic:'/js/course/topic',
-        login:'/js/home/login',
-        repass:'/js/home/repass',
-        setting:'/js/home/setting',
-        teacherAdd:'/js/teacher/add',
-        teacherList:'/js/teacher/list',
-        userList:'/js/user/list',
-        userProfile:'/js/user/profile',
-        index:'js/index'
+        // 自己写的路径配置
+        courseAddStep1: 'js/course/add_step1',
+        courseAddStep2: 'js/course/add_step2',
+        courseAddStep3: 'js/course/add_step3',
+        courseAdd: 'js/course/add',
+        courseCategoryAdd: 'js/course/category_add',
+        courseCategory: 'js/course/category',
+        courseList: 'js/course/list',
+        courseTopic: 'js/course/topic',
+        login: 'js/home/login',
+        repass: 'js/home/repass',
+        settings: 'js/home/settings',
+        teacherAdd: 'js/teacher/add',
+        teacherList: 'js/teacher/list',
+        userList: 'js/user/list',
+        userProfile: 'js/user/profile',
+        common: 'js/common/common',
+        index: 'js/index',
     },
     //自己写的路径配置
 
@@ -109,7 +111,7 @@ require(['jquery', 'bootstrap', 'common']);
                     require(['repass']);
                     break;
                 case'/html/home/setting.html':
-                    require(['setting']);
+                      require(['setting']);
                     break;
                 case'/html/teacher/add.html':
                     require(['teacherAdd']);

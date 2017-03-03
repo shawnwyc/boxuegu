@@ -2,20 +2,27 @@
  * Created by wyc on 2017/2/26.
  */
 define(['jquery','jqueryCookie'],function($,undefined){
+
+    //ajaxè¯·æ±‚loading
+    $(document).ajaxStart(function(){
+        $('.overlay ').show();
+    }).ajaxStop(function(){
+        $('.overlay ').hide()
+    })
     $('.navs a').on('click',function(){
         $(this).next().slideToggle();
     })
 
-    //×ó²àÀ¸¶¨Î»ÏÔÊ¾
+    //å·¦ä¾§æ å®šä½æ˜¾ç¤º
     var pathname = window.location.pathname;
-    //[href='µØÖ·'] ==> Í¨¹ıÊôĞÔÑ¡ÔñÆ÷È¥ÏÔÊ¾×ó²àÀ¸ÖĞ
+    //[href='åœ°å€'] ==> é€šè¿‡å±æ€§é€‰æ‹©å™¨å»æ˜¾ç¤ºå·¦ä¾§æ ä¸­
     $('.navs a').removeClass('active').filter('[href="'+pathname+'"]')
         .addClass('active').parents('ul').show();
 
 
-    //ÍË³ö¹¦ÄÜ:
+    //é€€å‡ºåŠŸèƒ½:
     $('#logout').on('click',function(){
-        //ÒòÎª²»ÓÃ´«²Î,ËùÒÔÖ±½Ó¿ÉÒÔÊ¹ÓÃ
+        //å› ä¸ºä¸ç”¨ä¼ å‚,æ‰€ä»¥ç›´æ¥å¯ä»¥ä½¿ç”¨
         $.post('/v6/logout',function(data){
             if(data.code==200){
                 location.href='/html/home/login.html';
@@ -23,17 +30,17 @@ define(['jquery','jqueryCookie'],function($,undefined){
         });
     });
 
-    //»ñÈ¡±¾µØcookieÓÃ»§ĞÅÏ¢,Í¬Ê±×öÈİ´í´¦Àí
+    //è·å–æœ¬åœ°cookieç”¨æˆ·ä¿¡æ¯,åŒæ—¶åšå®¹é”™å¤„ç†
     var userInfo =null;
     try{
-        //ÕâÀïÒòÎªÉÏÃædefineµÄÊ±ºòÃ»ÓĞ½ÓÊÜjqueryCookieµÄ·µ»ØÖµ,µ«ÊÇjqueryCookieÊÇ»ùÓÚjqueryµÄËùÓĞ¿ÉÒÔÖ±½ÓÊ¹ÓÃ
-        //jqueryÀïµÄ·½·¨,Í¨¹ı$.cookie();ÕâÀï´«ÈëÒ»¸ö²ÎÊı´ú±í,»ñÈ¡Öµ,ÒòÎªÕâÀïµÄcookie´ÓformdataÖĞnameÊôĞÔµÃµ½µÄ
+        //è¿™é‡Œå› ä¸ºä¸Šé¢defineçš„æ—¶å€™æ²¡æœ‰æ¥å—jqueryCookieçš„è¿”å›å€¼,ä½†æ˜¯jqueryCookieæ˜¯åŸºäºjqueryçš„æ‰€æœ‰å¯ä»¥ç›´æ¥ä½¿ç”¨
+        //jqueryé‡Œçš„æ–¹æ³•,é€šè¿‡$.cookie();è¿™é‡Œä¼ å…¥ä¸€ä¸ªå‚æ•°ä»£è¡¨,è·å–å€¼,å› ä¸ºè¿™é‡Œçš„cookieä»formdataä¸­nameå±æ€§å¾—åˆ°çš„
         userInfo = JSON.parse($.cookie('userInfo'));
     }catch(e){
         userInfo = {};
     }
 
-    //È»ºóÕ¹Ê¾µ½×ó²àµ¼º½
+    //ç„¶åå±•ç¤ºåˆ°å·¦ä¾§å¯¼èˆª
     $('.aside .profile h4 ').html(userInfo.tc_name?userInfo.tc_name:'dagenimeiminmaga');
     $('.aside .profile img').attr('src',userInfo.tc_avatar?userInfo.tc_avatar:'/images/default.png');
 
